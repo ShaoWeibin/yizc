@@ -1,0 +1,72 @@
+.cascadeWrapper {
+  display: flex;
+
+  &.disabled {
+    opacity: 0.75;
+    pointer-events: none;
+  }
+
+  .cascadeItem {
+    flex: 1 1 auto;
+    max-width: 300px;
+    height: 300px;
+
+    :global {
+      .ant-card {
+        // height: 400px;
+        display: flex;
+        flex-direction: column;
+
+        .ant-card-body {
+          padding: 0;
+          flex: 1 1 auto;
+          display: flex;
+          flex-direction: column;
+        }
+      }
+    }
+
+    &:not(:first-child) {
+      :global {
+        .ant-card-bordered {
+          border-left: none;
+        }
+      }
+    }
+
+    .header {
+      padding: 8px;
+    }
+
+    .list {
+      //修复有的浏览器没有滚动的问题
+      overflow: auto !important;
+      height: 215px !important;
+      margin: 0;
+      .item {
+        padding: 8px 16px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        &:hover {
+          background: #eee;
+        }
+
+        &.active {
+          background: rgb(63, 143, 247);
+        }
+      }
+    }
+
+    .placeholder {
+      height: 215px !important;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 14px;
+      color: #ccc;
+      flex: 1 1 auto;
+    }
+  }
+}
